@@ -17,7 +17,7 @@ This project covers the full pipeline a real ML role would require: joining rela
 
 | Metric | Value |
 |--------|-------|
-| Baseline ROC-AUC (main table only) | TBD |
+| Baseline ROC-AUC (main table only) | 0.7570  |
 | Full model ROC-AUC (all tables) | TBD |
 | CV Strategy | 5-Fold Stratified |
 | Tuning | Optuna |
