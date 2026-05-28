@@ -17,7 +17,7 @@ This project covers the full pipeline a real ML role would require: joining rela
 
 | Metric | Value |
 |--------|-------|
-| Baseline ROC-AUC (main table only) | 0.7570  |
+| Baseline ROC-AUC (main table only) | 0.7570 |
 | Full model ROC-AUC (all tables) | 0.7793 |
 | Kaggle Public Leaderboard | 0.7778 |
 
@@ -53,7 +53,6 @@ Each auxiliary table has many rows per applicant. They must be aggregated (mean,
 5. **Hyperparameter tuning** — Optuna search over key LightGBM parameters
 6. **Submission** — predict probabilities on the test set, submit to Kaggle
 
-
 ## Dataset
 
 [Home Credit Default Risk](https://www.kaggle.com/c/home-credit-default-risk/data) from Kaggle.
@@ -61,7 +60,27 @@ Each auxiliary table has many rows per applicant. They must be aggregated (mean,
 - ~307,000 loan applications in the training set
 - ~48,000 in the test set
 - 8% default rate (class imbalance)
-- 7 relational tables, ~120 raw features, 300+ after aggregation
+- 7 relational tables, ~120 raw features, 660+ after aggregation
+
+## Project Structure
+
+```
+home-credit/
+│
+├── notebooks/
+│   └── 01_pipeline.ipynb        # Full pipeline: EDA, training, submission
+│
+├── src/
+│   ├── features.py              # Feature engineering per auxiliary table
+│   └── model.py                 # LightGBM training, Cross-Validation, Optuna tuning
+│
+├── data/
+│   └── raw/                     # Kaggle CSV files (not committed)
+│
+├── outputs/                     # Submission files (not committed)
+├── .gitignore
+└── README.md
+```
 
 ## License
 

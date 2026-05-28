@@ -1,0 +1,14 @@
+# Data
+data/raw/
+data/chroma_db/
+
+# Outputs
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
