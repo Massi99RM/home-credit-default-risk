@@ -19,8 +19,7 @@ This project covers the full pipeline a real ML role would require: joining rela
 |--------|-------|
 | Baseline ROC-AUC (main table only) | 0.7570  |
 | Full model ROC-AUC (all tables) | 0.7793 |
-| CV Strategy | 5-Fold Stratified |
-| Tuning | Optuna |
+| Kaggle Public Leaderboard | 0.7778 |
 
 ## How It Works
 
