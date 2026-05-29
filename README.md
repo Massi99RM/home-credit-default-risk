@@ -20,7 +20,7 @@ This project covers the full pipeline a real ML role would require: joining rela
 | Baseline ROC-AUC (main table only) | 0.7570 |
 | Full model ROC-AUC (all tables)    | 0.7793 |
 | Tuned model ROC-AUC (Optuna)       | 0.7838 |
-| Kaggle Public Leaderboard          | 0.7778 |
+| Kaggle Public Leaderboard          | 0.7782 |
 
 ## How It Works
 
@@ -69,18 +69,43 @@ Each auxiliary table has many rows per applicant. They must be aggregated (mean,
 home-credit/
 │
 ├── notebooks/
-│   └── 01_pipeline.ipynb        # Full pipeline: EDA, training, submission
+│   └── 01_pipeline.ipynb        # Exploratory notebook: EDA, prototyping
 │
 ├── src/
+│   ├── __init__.py
 │   ├── features.py              # Feature engineering per auxiliary table
-│   └── model.py                 # LightGBM training, Cross-Validation, Optuna tuning
+│   └── model.py                 # LightGBM training, CV, Optuna tuning
 │
 ├── data/
 │   └── raw/                     # Kaggle CSV files (not committed)
 │
 ├── outputs/                     # Submission files (not committed)
+├── main.py                      # CLI entrypoint — runs the full pipeline
+├── requirements.txt
 ├── .gitignore
 └── README.md
+```
+
+## Usage
+
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Run the full pipeline with default parameters:
+```bash
+python main.py
+```
+
+Run with Optuna hyperparameter tuning:
+```bash
+python main.py --tune
+```
+
+Custom data and output directories:
+```bash
+python main.py --data-dir path/to/data/raw --output-dir path/to/outputs --tune --n-trials 50
 ```
 
 ## License
